@@ -1,6 +1,7 @@
 '''Edited by Kiron Deb'''
 
 import os
+import re
 
 from cs50 import SQL
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
@@ -32,7 +33,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL(os.getenv("DATABASE_URL"))
+uri = os.getenv("DATABASE_URL") 
+if uri and uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+db = SQL(uri)
 
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
