@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<div class="panel panel-default">
+    <table class="table table-bordered table-hover table-dark" >
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td style="font-weight: bold;">{{ "${:,.2f}".format(total_assets) }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row["Symbol"] }}</td>
+                    <td>{{ row["Name"] }}</td>
+                    <td>{{ row["Shares"] }}</td>
+                    <td>{{ "${:,.2f}".format(row["Price"]) }}</td>
+                    <td>{{ "${:,.2f}".format(row["Total"]) }}</td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <td>CASH BALANCE</td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td>{{ "${:,.2f}".format(cash_on_hand) }}</td>
+                </tr>
+        </tbody>
+    </table>
+    <form action="/update" method="post">
+        <button class="btn btn-primary" type="submit">Update Prices</button>
+    </form>
+</div>
+
+<script>
+
+</script>
+
+{% endblock %}

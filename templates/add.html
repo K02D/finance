@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Cash
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="injection" placeholder="Add cash" type="number">
+        </div>
+        <button onclick="myFunction()" class="btn btn-primary" type="submit">Add cash</button>
+    </form>
+<script>
+    function myFunction() {
+      var added = true;
+    }
+</script>
+{% endblock %}
