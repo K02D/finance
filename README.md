@@ -1,6 +1,6 @@
 # finance
 
-https://virtual-stock-trader.herokuapp.com/
+<a href="https://virtual-stock-trader.herokuapp.com/">Virtual Stock Trader</a>.
 
 A web app via which users can buy and sell stocks using virtual money. All stock prices are real and provided by <a href="https://iextrading.com/developer/">IEX</a>.
 
